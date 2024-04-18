@@ -21,11 +21,11 @@
                         <tbody>
                             @foreach ($users as $key => $user)
                                 {{-- Task: only every second row should have "bg-red-100" --}}
-                                <tr class="{{ @if($key % 2 == 0)bg-red-100 @endif }}">
+                                <tr class="{{ ($key % 2 == 0) ? 'bg-red-100' : '' }}">
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $user->name }}</td>
                                     {{-- Task: only the FIRST row should have email with "font-bold" --}}
-                                    <td class="{{ @if($key % 2 == 0)font-bold @endif }}">{{ $user->email }}</td>
+                                    <td class="{{ ($key % 2 == 0) ? 'font-bold' : '' }}">{{ $user->email }}</td>
                                     <td>{{ $user->created_at }}</td>
                                 </tr>
                             @endforeach
